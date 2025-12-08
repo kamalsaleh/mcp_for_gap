@@ -1,0 +1,22 @@
+packages:
+  - name: LinearAlgebraForCAP
+    tools:
+      - MatrixCategory
+      - VectorSpaceObject
+      - VectorSpaceMorphism
+  - name: LinearClosuresForCAP
+    tools:
+      - all
+  - name: FpCategories
+    tools:
+      - all
+    exclude_tools_with_subwords:
+      - AssignSetOf
+  - name: CAP
+    tools:
+      - all
+
+extract_mcp_schema_for:
+  - LinearAlgebraForCAP
+  - LinearClosuresForCAP
+  - FpCategories

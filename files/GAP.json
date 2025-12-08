@@ -1,0 +1,25 @@
+{
+  "tools": [
+    {
+      "name": "EvalCode",
+      "description": "Execute arbitrary GAP code and optionally assign the result to a variable. This tool allows you to run any GAP command or expression that isn't covered by specific tools.\n\nExamples:\n- Simple calculation: code='2+2;'\n- Create variable: code='x := 5;'\n- Complex expression: code='List([1..10], x -> x^2);'\n- Function definition: code='f := x -> x^2 + 1;'\n\nUse this when you need to:\n- Perform calculations or mathematical operations\n- Create and manage intermediate variables\n- Run GAP commands not available through other tools\n- Chain multiple operations together\n- Define custom functions\n- Access GAP's built-in library functions\n\nNote: The code should be valid GAP syntax and end with a semicolon.",
+      "inputSchema": {
+          "type": "object",
+          "properties": {
+              "code": {"type": "string", "description": "The GAP code to evaluate. Must be valid GAP syntax ending with a semicolon."}
+          },
+          "required": [
+            "code"
+          ]
+      }
+    },
+    {
+      "name": "Restart",
+      "description": "Restart the GAP session to reset its state. This tool is useful when you want to clear all variables, loaded packages, and any changes made during the current session, effectively starting fresh.",
+      "inputSchema": {
+          "type": "object",
+          "properties": {}
+      }
+    }
+  ]
+}
