@@ -241,20 +241,21 @@ def generate_mcp_schema(data: Dict[str, Any]) -> Dict[str, Any]:
             if func['label']:
                 label = func['label'][4:]
                 args_types = [ "The type of this argument in the GAP-System is `" + arg_type.strip() + "`" for arg_type in label.split(',')]
-            if len(args) == len(args_types):
-                for arg, arg_type in zip(args, args_types):
-                    tool['inputSchema']['properties'][arg] = {
-                        'type': 'string',
-                        'description': arg_type
-                    }
-                    tool['inputSchema']['required'].append(arg)
-            else:
-                for arg in args:
-                    tool['inputSchema']['properties'][arg] = {
-                        'type': 'string',
-                        'description': 'Argument (in the GAP System)'
-                    }
-                    tool['inputSchema']['required'].append(arg)
+                
+                if len(args) == len(args_types):
+                    for arg, arg_type in zip(args, args_types):
+                        tool['inputSchema']['properties'][arg] = {
+                            'type': 'string',
+                            'description': arg_type
+                        }
+                        tool['inputSchema']['required'].append(arg)
+                else:
+                    for arg in args:
+                        tool['inputSchema']['properties'][arg] = {
+                            'type': 'string',
+                            'description': 'Argument (in the GAP System)'
+                        }
+                        tool['inputSchema']['required'].append(arg)
         
         tools.append(tool)
     
